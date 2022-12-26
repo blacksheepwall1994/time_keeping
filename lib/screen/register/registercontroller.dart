@@ -35,6 +35,14 @@ class RegisterController extends GetxController {
   }
 
   void createUser() {
+    if (nameController.value.text == '' ||
+        phoneController.value.text == '' ||
+        homeTownController.value.text == '' ||
+        adressController.value.text == '') {
+      Get.snackbar(
+          'Thông tin không hợp lệ!', 'Xin vui lòng nhập đầy đủ thông tin!');
+      return;
+    }
     if (!isDate(dateController.value.text, 'yyyy-MM-dd')) {
       Get.snackbar('Ngày không hợp lệ!',
           'Xin vui lòng ấn vào ô chọn ngày sinh để chọn ngày!');
