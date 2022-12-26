@@ -124,9 +124,13 @@ class MainPage extends GetView<HomeController> {
                         ),
                       );
                     },
-                    leading: Text(
-                      'ID :${snapshot.data.data().values.toList()[index]['user']['id'].toString()}',
-                      textAlign: TextAlign.center,
+                    leading: SizedBox(
+                      height: 100,
+                      width: 50,
+                      child: Text(
+                        'ID :${snapshot.data.data().values.toList()[index]['user']['id'].toString()}',
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                     title: Column(
                       mainAxisAlignment: MainAxisAlignment.start,

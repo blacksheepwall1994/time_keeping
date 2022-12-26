@@ -53,7 +53,7 @@ class HomeController extends GetxController {
     client.websocketProtocols = MqttClientConstants.protocolsSingleDefault;
     //TODO: sửa lại clientidentifier
     final connMess = MqttConnectMessage()
-        .withClientIdentifier('Mqtt_MyClientUniqueId')
+        .withClientIdentifier('${DateTime.now()}')
         .withWillTopic(
             'willtopic') // If you set this you must set a will message
         .withWillMessage('My Will message')

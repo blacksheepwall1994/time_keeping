@@ -23,7 +23,23 @@ class RegisterController extends GetxController {
     idController.value.text = id.value;
   }
 
+  bool isDate(String input, String format) {
+    try {
+      final DateTime d = DateFormat(format).parseStrict(input);
+      //print(d);
+      return true;
+    } catch (e) {
+      //print(e);
+      return false;
+    }
+  }
+
   void createUser() {
+    if (!isDate(dateController.value.text, 'yyyy-MM-dd')) {
+      Get.snackbar('Ngày không hợp lệ!',
+          'Xin vui lòng ấn vào ô chọn ngày sinh để chọn ngày!');
+      return;
+    }
     knownUsers.doc(idController.value.text).set({
       'name': nameController.value.text,
       'phone': phoneController.value.text,
